@@ -8,7 +8,7 @@ const chalk = require('chalk');
 function showBanner() {
     console.log(
         chalk.cyan.bold('=========================================\n') +
-        chalk.yellow.bold('🚀 Auto-Claim-Faucet SOLANA TESTNET 🚀 🤖\n') + // Ganti DEVNET jadi TESTNET
+        chalk.yellow.bold('🚀 Auto-Claim-Faucet SOLANA TESTNET 🚀 🤖\n') + // !!!
         chalk.white('Created by: ') + chalk.green('@PetrukStar\n') +
         chalk.white('EVM Address: ') + chalk.green('0x2E8cF27819D18D935596915c4066E8198cBEd795\n') +
         chalk.cyan.bold('=========================================')
