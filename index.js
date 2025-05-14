@@ -61,7 +61,7 @@ async function claimFaucet(address, amountSol = 1, agent = null) {
     };
 
     try {
-        const response = await axios.post("https://api.testnet.solana.com", payload, { // Ganti devnet -> testnet
+        const response = await axios.post("https://api.testnet.solana.com", payload, {
             headers: { 'Content-Type': 'application/json' },
             timeout: 15000,
             httpsAgent: agent,
@@ -93,7 +93,7 @@ async function getBalance(address, agent = null) {
     };
 
     try {
-        const response = await axios.post("https://api.testnet.solana.com", payload, { // Ganti devnet -> testnet
+        const response = await axios.post("https://api.testnet.solana.com", payload, {
             headers: { 'Content-Type': 'application/json' },
             timeout: 15000,
             httpsAgent: agent,
