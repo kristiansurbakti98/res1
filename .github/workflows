@@ -1,0 +1,40 @@
+# Nama workflow yang akan muncul di tab Actions
+name: Auto Faucet Runner
+
+# Pemicu (Trigger)
+# Tentukan kapan workflow harus berjalan
+on:
+  # 1. Jadwalkan berjalan setiap 12 jam (pukul 00:00 dan 12:00 UTC)
+  schedule:
+    - cron: '0 */12 * * *'
+  # 2. Izinkan dijalankan secara manual dari tab Actions
+  workflow_dispatch:
+
+# Definisi pekerjaan (Jobs)
+jobs:
+  run-claim:
+    # Menggunakan runner Ubuntu
+    runs-on: ubuntu-latest
+    
+    # Langkah-langkah (Steps) yang akan dijalankan
+    steps:
+      # Langkah 1: Checkout kode Anda
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      # Langkah 2: Siapkan lingkungan Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Gunakan versi Node.js yang sesuai
+
+      # Langkah 3: Instal dependensi yang diperlukan
+      - name: Install Dependencies
+        run: |
+          npm install http-proxy-agent@latest https-proxy-agent@latest socks-proxy-agent@latest
+          
+      # Langkah 4: Jalankan skrip utama
+      - name: Run Auto Claim Script
+        run: |
+          # Ganti 43200 dengan interval klaim Anda dalam detik (43200 detik = 12 jam)
+          node index.js 43200
