@@ -37,4 +37,4 @@ jobs:
       - name: Run Auto Claim Script
         run: |
           # Ganti 43200 dengan interval klaim Anda dalam detik (43200 detik = 12 jam)
-          node index.js 43200
+          node index.js 60
